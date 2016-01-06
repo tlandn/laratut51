@@ -10,7 +10,8 @@
         "barryvdh/laravel-ide-helper": "^2.1",
 		"doctrine/dbal": "~2.3",
         "laravelcollective/html": "5.1.*",
-        "bestmomo/scafold": "dev-master"
+        "bestmomo/scafold": "dev-master",
+        "thijsdemaa/laravel-crud": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
