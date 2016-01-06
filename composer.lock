@@ -4,9 +4,53 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "45b8fd071b1d196af563866a68b1e3b2",
-    "content-hash": "6ac53db580883ee510f7d1879b31a4da",
+    "hash": "63eeaaca95dd6f1338427ab2351dd89d",
+    "content-hash": "5184800abf23da54d7b3af941386baef",
     "packages": [
+        {
+            "name": "appzcoder/crud-generator",
+            "version": "v1.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/appzcoder/crud-generator.git",
+                "reference": "70d950ac9caba1e204b389a5349fb0f6216156e9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/appzcoder/crud-generator/zipball/70d950ac9caba1e204b389a5349fb0f6216156e9",
+                "reference": "70d950ac9caba1e204b389a5349fb0f6216156e9",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.1.*|5.2.*",
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Appzcoder\\CrudGenerator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sohel Amin",
+                    "email": "sohelamincse@gmail.com",
+                    "homepage": "http://www.appzcoder.com"
+                }
+            ],
+            "description": "Laravel 5 CRUD Generator",
+            "keywords": [
+                "crud",
+                "crud generator",
+                "laravel",
+                "laravel crud generator"
+            ],
+            "time": "2015-12-28 18:20:24"
+        },
         {
             "name": "barryvdh/laravel-ide-helper",
             "version": "v2.1.2",

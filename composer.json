@@ -11,7 +11,8 @@
 		"doctrine/dbal": "~2.3",
         "laravelcollective/html": "5.1.*",
         "bestmomo/scafold": "dev-master",
-        "thijsdemaa/laravel-crud": "^1.0"
+        "thijsdemaa/laravel-crud": "^1.0",
+        "appzcoder/crud-generator": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -34,3 +34,5 @@ Route::get('foo', ['middleware' => 'manager', function() {
 }]);
 
 Route::resource('admin/person', 'PersonController');
+
+Route::resource('posts', 'PostsController');
