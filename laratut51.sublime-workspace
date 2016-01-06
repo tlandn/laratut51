@@ -1,0 +1,1132 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fun",
+				"funtion"
+			],
+			[
+				"no",
+				"notices"
+			],
+			[
+				"Auth",
+				"Auth::user	Auth-user"
+			],
+			[
+				"boottext",
+				"boottextarea	textarea"
+			],
+			[
+				"boo",
+				"boottext"
+			],
+			[
+				"boot",
+				"bootstrapcdn"
+			],
+			[
+				"Route",
+				"Route::get	Basic Route with Closure"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "<?php\n\n/*\n|--------------------------------------------------------------------------\n| Application Routes\n|--------------------------------------------------------------------------\n|\n| Here is where you can register all of the routes for an application.\n| It's a breeze. Simply tell Laravel the URIs it should respond to\n| and give it the controller to call when that URI is requested.\n|\n*/\n\nget('/', );\n\nRoute::get('/', function () {\n    return view('welcome');\n});\n\nRoute::get('/about', ['middleware' => 'auth', function() {\n        return 'this page only show for signed in user';\n}] );\nRoute::get('/contact', \"PagesController@contact\");\n\nRoute::resource('articles', 'ArticlesController');\n\nRoute::controllers(\n    [\n        'auth' => 'Auth\\AuthController',\n        'password' => 'Auth\\PasswordController'\n\n    ]\n);\n\nRoute::get('foo', ['middleware' => 'manager', function() {\n    return 'this page only viewed by manager';\n}]);",
+			"file": "app/Http/routes.php",
+			"file_size": 919,
+			"file_write_time": 130866252556089537,
+			"settings":
+			{
+				"buffer_size": 932,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/PagesController.php",
+			"settings":
+			{
+				"buffer_size": 575,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/Controller.php",
+			"settings":
+			{
+				"buffer_size": 514,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "composer.json",
+			"settings":
+			{
+				"buffer_size": 1360,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "vendor/laravel/framework/src/Illuminate/Console/Application.php",
+			"settings":
+			{
+				"buffer_size": 4552,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "vendor/laravel/framework/src/Illuminate/Foundation/Application.php",
+			"settings":
+			{
+				"buffer_size": 29407,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php\n\n/*\n|--------------------------------------------------------------------------\n| Model Factories\n|--------------------------------------------------------------------------\n|\n| Here you may define all of your model factories. Model factories give\n| you a convenient way to create models for testing and seeding your\n| database. Just tell the factory how a default model should look.\n|\n*/\n\n$factory->define(App\\User::class, function (Faker\\Generator $faker) {\n    return [\n        'name' => $faker->name,\n        'email' => $faker->email,\n        'password' => bcrypt(str_random(10)),\n        'remember_token' => str_random(10),\n    ];\n});\n\n\n",
+			"file": "database/factories/ModelFactory.php",
+			"file_size": 646,
+			"file_write_time": 130861824664789295,
+			"settings":
+			{
+				"buffer_size": 648,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "database/seeds/DatabaseSeeder.php",
+			"settings":
+			{
+				"buffer_size": 343,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php\n\nreturn [\n\n    /*\n    |--------------------------------------------------------------------------\n    | Application Debug Mode\n    |--------------------------------------------------------------------------\n    |\n    | When your application is in debug mode, detailed error messages with\n    | stack traces will be shown on every error that occurs within your\n    | application. If disabled, a simple generic error page is shown.\n    |\n    */\n\n    'debug' => env('APP_DEBUG', false),\n\n    /*\n    |--------------------------------------------------------------------------\n    | Application URL\n    |--------------------------------------------------------------------------\n    |\n    | This URL is used by the console to properly generate URLs when using\n    | the Artisan command line tool. You should set this to the root of\n    | your application so that it is used when running Artisan tasks.\n    |\n    */\n\n    'url' => 'http://localhost',\n\n    /*\n    |--------------------------------------------------------------------------\n    | Application Timezone\n    |--------------------------------------------------------------------------\n    |\n    | Here you may specify the default timezone for your application, which\n    | will be used by the PHP date and date-time functions. We have gone\n    | ahead and set this to a sensible default for you out of the box.\n    |\n    */\n\n    'timezone' => 'UTC',\n\n    /*\n    |--------------------------------------------------------------------------\n    | Application Locale Configuration\n    |--------------------------------------------------------------------------\n    |\n    | The application locale determines the default locale that will be used\n    | by the translation service provider. You are free to set this value\n    | to any of the locales which will be supported by the application.\n    |\n    */\n\n    'locale' => 'en',\n\n    /*\n    |--------------------------------------------------------------------------\n    | Application Fallback Locale\n    |--------------------------------------------------------------------------\n    |\n    | The fallback locale determines the locale to use when the current one\n    | is not available. You may change the value to correspond to any of\n    | the language folders that are provided through your application.\n    |\n    */\n\n    'fallback_locale' => 'en',\n\n    /*\n    |--------------------------------------------------------------------------\n    | Encryption Key\n    |--------------------------------------------------------------------------\n    |\n    | This key is used by the Illuminate encrypter service and should be set\n    | to a random, 32 character string, otherwise these encrypted strings\n    | will not be safe. Please do this before deploying an application!\n    |\n    */\n\n    'key' => env('APP_KEY', 'SomeRandomString'),\n\n    'cipher' => 'AES-256-CBC',\n\n    /*\n    |--------------------------------------------------------------------------\n    | Logging Configuration\n    |--------------------------------------------------------------------------\n    |\n    | Here you may configure the log settings for your application. Out of\n    | the box, Laravel uses the Monolog PHP logging library. This gives\n    | you a variety of powerful log handlers / formatters to utilize.\n    |\n    | Available Settings: \"single\", \"daily\", \"syslog\", \"errorlog\"\n    |\n    */\n\n    'log' => 'single',\n\n    /*\n    |--------------------------------------------------------------------------\n    | Autoloaded Service Providers\n    |--------------------------------------------------------------------------\n    |\n    | The service providers listed here will be automatically loaded on the\n    | request to your application. Feel free to add your own services to\n    | this array to grant expanded functionality to your applications.\n    |\n    */\n\n    'providers' => [\n\n        /*\n         * Laravel Framework Service Providers...\n         */\n        Illuminate\\Foundation\\Providers\\ArtisanServiceProvider::class,\n        Illuminate\\Auth\\AuthServiceProvider::class,\n        Illuminate\\Broadcasting\\BroadcastServiceProvider::class,\n        Illuminate\\Bus\\BusServiceProvider::class,\n        Illuminate\\Cache\\CacheServiceProvider::class,\n        Illuminate\\Foundation\\Providers\\ConsoleSupportServiceProvider::class,\n        Illuminate\\Routing\\ControllerServiceProvider::class,\n        Illuminate\\Cookie\\CookieServiceProvider::class,\n        Illuminate\\Database\\DatabaseServiceProvider::class,\n        Illuminate\\Encryption\\EncryptionServiceProvider::class,\n        Illuminate\\Filesystem\\FilesystemServiceProvider::class,\n        Illuminate\\Foundation\\Providers\\FoundationServiceProvider::class,\n        Illuminate\\Hashing\\HashServiceProvider::class,\n        Illuminate\\Mail\\MailServiceProvider::class,\n        Illuminate\\Pagination\\PaginationServiceProvider::class,\n        Illuminate\\Pipeline\\PipelineServiceProvider::class,\n        Illuminate\\Queue\\QueueServiceProvider::class,\n        Illuminate\\Redis\\RedisServiceProvider::class,\n        Illuminate\\Auth\\Passwords\\PasswordResetServiceProvider::class,\n        Illuminate\\Session\\SessionServiceProvider::class,\n        Illuminate\\Translation\\TranslationServiceProvider::class,\n        Illuminate\\Validation\\ValidationServiceProvider::class,\n        Illuminate\\View\\ViewServiceProvider::class,\n        Bestmomo\\Scafold\\ScafoldServiceProvider::class,\n\n        /*\n         * Application Service Providers...\n         */\n        App\\Providers\\AppServiceProvider::class,\n        App\\Providers\\AuthServiceProvider::class,\n        App\\Providers\\EventServiceProvider::class,\n        App\\Providers\\RouteServiceProvider::class,\n        App\\Providers\\ViewComposerServiceProvider::class,\n        \n\n        Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider::class,\n\n    ],\n\n    /*\n    |--------------------------------------------------------------------------\n    | Class Aliases\n    |--------------------------------------------------------------------------\n    |\n    | This array of class aliases will be registered when this application\n    | is started. However, feel free to register as many as you wish as\n    | the aliases are \"lazy\" loaded so they don't hinder performance.\n    |\n    */\n\n    'aliases' => [\n\n        'App'       => Illuminate\\Support\\Facades\\App::class,\n        'Artisan'   => Illuminate\\Support\\Facades\\Artisan::class,\n        'Auth'      => Illuminate\\Support\\Facades\\Auth::class,\n        'Blade'     => Illuminate\\Support\\Facades\\Blade::class,\n        'Bus'       => Illuminate\\Support\\Facades\\Bus::class,\n        'Cache'     => Illuminate\\Support\\Facades\\Cache::class,\n        'Config'    => Illuminate\\Support\\Facades\\Config::class,\n        'Cookie'    => Illuminate\\Support\\Facades\\Cookie::class,\n        'Crypt'     => Illuminate\\Support\\Facades\\Crypt::class,\n        'DB'        => Illuminate\\Support\\Facades\\DB::class,\n        'Eloquent'  => Illuminate\\Database\\Eloquent\\Model::class,\n        'Event'     => Illuminate\\Support\\Facades\\Event::class,\n        'File'      => Illuminate\\Support\\Facades\\File::class,\n        'Gate'      => Illuminate\\Support\\Facades\\Gate::class,\n        'Hash'      => Illuminate\\Support\\Facades\\Hash::class,\n        'Input'     => Illuminate\\Support\\Facades\\Input::class,\n        'Inspiring' => Illuminate\\Foundation\\Inspiring::class,\n        'Lang'      => Illuminate\\Support\\Facades\\Lang::class,\n        'Log'       => Illuminate\\Support\\Facades\\Log::class,\n        'Mail'      => Illuminate\\Support\\Facades\\Mail::class,\n        'Password'  => Illuminate\\Support\\Facades\\Password::class,\n        'Queue'     => Illuminate\\Support\\Facades\\Queue::class,\n        'Redirect'  => Illuminate\\Support\\Facades\\Redirect::class,\n        'Redis'     => Illuminate\\Support\\Facades\\Redis::class,\n        'Request'   => Illuminate\\Support\\Facades\\Request::class,\n        'Response'  => Illuminate\\Support\\Facades\\Response::class,\n        'Route'     => Illuminate\\Support\\Facades\\Route::class,\n        'Schema'    => Illuminate\\Support\\Facades\\Schema::class,\n        'Session'   => Illuminate\\Support\\Facades\\Session::class,\n        'Storage'   => Illuminate\\Support\\Facades\\Storage::class,\n        'URL'       => Illuminate\\Support\\Facades\\URL::class,\n        'Validator' => Illuminate\\Support\\Facades\\Validator::class,\n        'View'      => Illuminate\\Support\\Facades\\View::class,\n\n    ],\n\n];\n",
+			"file": "config/app.php",
+			"file_size": 8368,
+			"file_write_time": 130922900158892795,
+			"settings":
+			{
+				"buffer_size": 8377,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config/mail.php",
+			"settings":
+			{
+				"buffer_size": 4403,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php\n\nnamespace App\\Http\\Middleware;\n\nuse Closure;\nuse Illuminate\\Contracts\\Auth\\Guard;\n\nclass Authenticate\n{\n    /**\n     * The Guard implementation.\n     *\n     * @var Guard\n     */\n    protected $auth;\n\n    /**\n     * Create a new filter instance.\n     *\n     * @param  Guard  $auth\n     * @return void\n     */\n    public function __construct(Guard $auth)\n    {\n        $this->auth = $auth;\n    }\n\n    /**\n     * Handle an incoming request.\n     *\n     * @param  \\Illuminate\\Http\\Request  $request\n     * @param  \\Closure  $next\n     * @return mixed\n     */\n    public function handle($request, Closure $next)\n    {\n        if ($this->auth->guest()) {\n            if ($request->ajax()) {\n                return response('Unauthorized.', 401);\n            } else {\n                return redirect()->guest('user/login');\n            }\n        }\n\n        return $next($request);\n    }\n}\n",
+			"file": "app/Http/Middleware/Authenticate.php",
+			"file_size": 889,
+			"file_write_time": 130861824661398865,
+			"settings":
+			{
+				"buffer_size": 889,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesAndRegistersUsers.php",
+			"settings":
+			{
+				"buffer_size": 205,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php",
+			"settings":
+			{
+				"buffer_size": 896,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php\n\nnamespace App\\Providers;\n\nuse Illuminate\\Support\\ServiceProvider;\n\nclass AppServiceProvider extends ServiceProvider\n{\n    /**\n     * Bootstrap any application services.\n     *\n     * @return void\n     */\n    public function boot()\n    {\n      view()->composer('nav', function($view) {\n            $view->with('user', Auth::user());\n        });\n \n  view()->composer('nav', function($view) {\n            $view->with('user', Auth::user());\n        });\n   view()->composer('nav', function($view) {\n            $view->with('user', Auth::user());\n        });\n    view()->composer('nav', function($view) {\n            $view->with('user', Auth::user());\n        });\n     view()->composer('nav', function($view) {\n            $view->with('user', Auth::user());\n        });\n      view()->composer('nav', function($view) {\n            $view->with('user', Auth::user());\n        });\n      \n    }\n\n    /**\n     * Register any application services.\n     *\n     * @return void\n     */\n    public function register()\n    {\n        //\n    }\n}\n",
+			"file": "app/Providers/AppServiceProvider.php",
+			"file_size": 403,
+			"file_write_time": 130861824659518626,
+			"settings":
+			{
+				"buffer_size": 1033,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Providers/ViewComposerServiceProvider.php",
+			"settings":
+			{
+				"buffer_size": 412,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config/database.php",
+			"settings":
+			{
+				"buffer_size": 4091,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "database/migrations/2014_10_12_000000_create_users_table.php",
+			"settings":
+			{
+				"buffer_size": 703,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/User.php",
+			"settings":
+			{
+				"buffer_size": 2029,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "install",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"pcrp",
+				"Package Control: Remove Package"
+			],
+			[
+				"pi",
+				"Package Control: Install Package"
+			],
+			[
+				"bootf",
+				"Snippet: bs3-block-button-default"
+			],
+			[
+				"prett",
+				"HTMLPrettify: Set `node` Path"
+			],
+			[
+				"gi",
+				"Git: Gui"
+			],
+			[
+				"Laravel ",
+				"Laravel Artisan: Route: List"
+			],
+			[
+				"perm",
+				"Snippet: Lorem ipsum"
+			],
+			[
+				"sort",
+				"Sort Lines"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 528.0
+	},
+	"console":
+	{
+		"height": 435.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/Soft/Laragon/www/laratut51",
+		"/D/Soft/Laragon/www/laratut51/app",
+		"/D/Soft/Laragon/www/laratut51/app/Http",
+		"/D/Soft/Laragon/www/laratut51/app/Http/Controllers",
+		"/D/Soft/Laragon/www/laratut51/app/Http/Middleware",
+		"/D/Soft/Laragon/www/laratut51/app/Providers",
+		"/D/Soft/Laragon/www/laratut51/config",
+		"/D/Soft/Laragon/www/laratut51/database",
+		"/D/Soft/Laragon/www/laratut51/database/factories",
+		"/D/Soft/Laragon/www/laratut51/database/migrations",
+		"/D/Soft/Laragon/www/laratut51/database/seeds",
+		"/D/Soft/Laragon/www/laratut51/resources",
+		"/D/Soft/Laragon/www/laratut51/resources/views",
+		"/D/Soft/Laragon/www/laratut51/storage"
+	],
+	"file_history":
+	[
+		"/D/Soft/Laragon/www/dmca-app/app/Notice.php",
+		"/D/Soft/Laragon/www/dmca-app/app/User.php",
+		"/D/Soft/Laragon/www/dmca-app/resources/views/emails/dmca.blade.php",
+		"/D/Soft/Laragon/www/dmca-app/node_modules/laravel-elixir/node_modules/gulp-babel/node_modules/babel-core/node_modules/regenerator/node_modules/commoner/test/source/tests/settings.js",
+		"/D/Soft/Laragon/www/dmca-app/.env",
+		"/D/Soft/Laragon/www/dmca-app/storage/logs/.gitignore",
+		"/D/Soft/Laragon/www/dmca-app/config/queue.php",
+		"/D/Soft/Laragon/www/dmca-app/app/Http/Controllers/Controller.php",
+		"/D/Soft/Laragon/www/dmca-app/config/mail.php",
+		"/D/Soft/Laragon/www/dmca-app/vendor/laravel/framework/src/Illuminate/Support/Facades/Auth.php",
+		"/D/Soft/Laragon/www/dmca-app/composer.json",
+		"/D/Soft/Laragon/www/dmca-app/app/Http/Controllers/NoticesController.php",
+		"/D/Soft/Laragon/www/dmca-app/app/Http/routes.php",
+		"/D/Soft/Laragon/www/dmca-app/public/css/app.css",
+		"/D/Soft/Laragon/www/dmca-app/resources/views/pages/home.blade.php",
+		"/D/Soft/Laragon/www/dmca-app/public/css/app.min.css",
+		"/D/Soft/Laragon/www/dmca-app/test.html",
+		"/D/Soft/Laragon/www/dmca-app/resources/views/app.blade.php",
+		"/D/Soft/Laragon/www/dmca-app/resources/assets/sass/app.scss",
+		"/D/Soft/IDE/Sublime 3/Sublime Text 3 Portable Full Registered for Win, Linux and Mac/B.3095.x64.Portable/Data/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
+		"/D/Soft/IDE/Sublime 3/Sublime Text 3 Portable Full Registered for Win, Linux and Mac/B.3095.x64.Portable/Data/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
+		"/D/Soft/Laragon/www/dmca-app/lantra/abc.blade.php",
+		"/D/Soft/Laragon/www/dmca-app/bootstrap/autoload.php",
+		"/D/Soft/Laragon/www/dmca-app/.gitattributes",
+		"/D/Soft/Laragon/www/dmca-app/resources/views/lantra/abc.blade.php",
+		"/D/Soft/Laragon/www/dmca-app/database/migrations/2015_11_01_134645_create_notices_table.php",
+		"/D/Soft/Laragon/www/dmca-app/vendor/laravel/framework/src/Illuminate/View/View.php",
+		"/D/Soft/Laragon/www/dmca-app/vendor/laravel/framework/src/Illuminate/Http/Request.php",
+		"/D/Soft/Laragon/www/dmca-app/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php",
+		"/D/Soft/IDE/Sublime 3/Sublime Text 3 Portable Full Registered for Win, Linux and Mac/B.3095.x64.Portable/Data/Packages/User/Default (Windows).sublime-keymap",
+		"/D/Soft/IDE/Sublime 3/Sublime Text 3 Portable Full Registered for Win, Linux and Mac/B.3095.x64.Portable/Data/Packages/PHP Companion/PHP Companion.sublime-settings",
+		"/D/Soft/IDE/Sublime 3/Sublime Text 3 Portable Full Registered for Win, Linux and Mac/B.3095.x64.Portable/Data/Packages/User/PHP Companion.sublime-settings",
+		"/D/Soft/IDE/Sublime 3/Sublime Text 3 Portable Full Registered for Win, Linux and Mac/B.3095.x64.Portable/Data/Packages/Default/Preferences.sublime-settings",
+		"/D/Soft/IDE/Sublime 3/Sublime Text 3 Portable Full Registered for Win, Linux and Mac/AppNee.com.Sublime.Text.3.B.3095.x64.Portable/Data/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
+		"/D/Soft/IDE/Sublime 3/Sublime Text 3 Portable Full Registered for Win, Linux and Mac/AppNee.com.Sublime.Text.3.B.3095.x64.Portable/Data/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
+		"/D/Soft/Laragon/www/dmca-app/lantra/tes.php",
+		"/D/Soft/IDE/Sublime 3/Sublime Text 3 Portable Full Registered for Win, Linux and Mac/AppNee.com.Sublime.Text.3.B.3095.x64.Portable/Data/Packages/Alignment/Default (Windows).sublime-keymap",
+		"/D/Soft/Laragon/www/dmca-app/node_modules/laravel-elixir/node_modules/browser-sync/node_modules/browser-sync-ui/public/js/app.js"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"funtion",
+			"    // $data = session()->get('dmca');\n        // $notice = Notice::open($data)\n        //     ->useTemplate($request->input('template'));\n        \n        // Auth::user()->notices()->save($notice);\n",
+			"file",
+			"tab",
+			"confirm(",
+			"Test item",
+			"Test ite",
+			"Test",
+			"Test item",
+			"st item",
+			"Test",
+			"est item",
+			"item"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/Http/routes.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 932,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								396,
+								396
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 90.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/Http/Controllers/PagesController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 575,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								225,
+								225
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/Http/Controllers/Controller.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 514,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								390,
+								390
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "composer.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1360,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								238,
+								243
+							]
+						],
+						"settings":
+						{
+							"auto_complete": true,
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 45.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "vendor/laravel/framework/src/Illuminate/Console/Application.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4552,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 90.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "vendor/laravel/framework/src/Illuminate/Foundation/Application.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 29407,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								870,
+								886
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "database/factories/ModelFactory.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 648,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								395,
+								395
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "database/seeds/DatabaseSeeder.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 343,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								273,
+								307
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "config/app.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8377,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5680,
+								5707
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1661.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "config/mail.php",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 4403,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								550,
+								572
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1395.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "app/Http/Middleware/Authenticate.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 889,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								582,
+								588
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesAndRegistersUsers.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 205,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								113,
+								127
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 16,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 896,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								876,
+								876
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 90.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "app/Providers/AppServiceProvider.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1033,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								884,
+								884
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "app/Providers/ViewComposerServiceProvider.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 412,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								80,
+								107
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "config/database.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4091,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1906,
+								1913
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1485.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "database/migrations/2014_10_12_000000_create_users_table.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 703,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								589,
+								589
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 17,
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "app/User.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2029,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1646,
+								1646
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 322.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 258.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "laratut51.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"routes",
+				"app\\Http\\routes.php"
+			],
+			[
+				"application.php",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php"
+			],
+			[
+				"appser",
+				"app\\Providers\\AppServiceProvider.php"
+			],
+			[
+				"registersusers",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Auth\\RegistersUsers.php"
+			],
+			[
+				"authenticatesandregistersusers",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Auth\\AuthenticatesAndRegistersUsers.php"
+			],
+			[
+				"route",
+				"app\\Http\\routes.php"
+			],
+			[
+				"settings",
+				"node_modules\\laravel-elixir\\node_modules\\gulp-babel\\node_modules\\babel-core\\node_modules\\regenerator\\node_modules\\commoner\\test\\source\\tests\\settings.js"
+			],
+			[
+				".e",
+				".env"
+			],
+			[
+				"mail",
+				"config\\mail.php"
+			],
+			[
+				"app",
+				"config\\app.php"
+			],
+			[
+				"com",
+				"composer.json"
+			],
+			[
+				"control",
+				"app\\Http\\Controllers\\Controller.php"
+			],
+			[
+				"notic",
+				"app\\Notice.php"
+			],
+			[
+				"logs/",
+				"storage\\logs\\.gitignore"
+			],
+			[
+				"que",
+				"config\\queue.php"
+			],
+			[
+				"config/m",
+				"config\\mail.php"
+			],
+			[
+				"user",
+				"app\\User.php"
+			],
+			[
+				"",
+				".gitattributes"
+			],
+			[
+				"rou",
+				"app\\Http\\routes.php"
+			],
+			[
+				"nc",
+				"app\\Http\\Controllers\\NoticesController.php"
+			],
+			[
+				"noticec",
+				"app\\Http\\Controllers\\NoticesController.php"
+			],
+			[
+				"routes.",
+				"app\\Http\\routes.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "create",
+		"selected_items":
+		[
+			[
+				"create",
+				"create"
+			],
+			[
+				"index",
+				"Index"
+			],
+			[
+				"noticec",
+				"NoticesController"
+			],
+			[
+				"pagecon",
+				"PagesController"
+			],
+			[
+				"",
+				"$$applicationDestroyed"
+			],
+			[
+				"crea",
+				"create"
+			],
+			[
+				"con",
+				"confirm"
+			]
+		],
+		"width": 942.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 345.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

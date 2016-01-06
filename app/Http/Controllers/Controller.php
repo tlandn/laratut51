@@ -10,4 +10,14 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 abstract class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    protected $user;
+
+    protected $signedIn;
+
+    public function __construct() {
+    	$this->user = $this->signedIn = Auth::user();
+    }
+
+
 }

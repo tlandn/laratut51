@@ -9,7 +9,7 @@
         "laravel/framework": "5.1.*",
         "barryvdh/laravel-ide-helper": "^2.1",
 		"doctrine/dbal": "~2.3",
-        "illuminate/html": "^5.0",
+        "laravelcollective/html": "5.1.*",
         "bestmomo/scafold": "dev-master"
     },
     "require-dev": {
